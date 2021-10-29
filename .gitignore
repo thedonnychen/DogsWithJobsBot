@@ -1,0 +1,4 @@
+vendor
+.env
+debugging.php
+tweeted_post_ids.json

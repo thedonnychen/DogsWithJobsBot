@@ -1,0 +1,7 @@
+{
+    "require": {
+        "dg/twitter-php": "^4.1",
+        "symfony/var-dumper": "^4.0",
+        "vlucas/phpdotenv": "^5.3"
+    }
+}
