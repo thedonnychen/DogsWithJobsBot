@@ -25,7 +25,8 @@ class Tweet
     public function sendTweet()
     {
         $twitter            = new Twitter($_SERVER['API_KEY'], $_SERVER['API_SECRET'], $_SERVER['ACCESS_TOKEN'], $_SERVER['ACCESS_TOKEN_SECRET']);
-        $tweeted_post_ids   = file_get_contents($_SERVER['TWEETED_IDS']);
+        $json_file_path     = __DIR__ . '/../../' . $_SERVER['TWEETED_IDS'];
+        $tweeted_post_ids   = file_get_contents($json_file_path);
         $json_post_ids      = json_decode($tweeted_post_ids);
         $new_post           = $this->getNewPost($json_post_ids->ids);
         $formatted_tweet    = self::REDDIT_URL . $new_post['permalink'];

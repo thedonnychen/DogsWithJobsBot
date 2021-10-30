@@ -21,12 +21,12 @@ class ResetIds
      */
     public function NewJson()
     {
-        $tweeted_ids = $_SERVER['TWEETED_IDS'];
+        $json_file_path = __DIR__ . '/../../' . $_SERVER['TWEETED_IDS'];
 
-        if (file_exists($tweeted_ids)) {
+        if (file_exists($json_file_path)) {
             $new_json = new class{};
             $new_json->ids = [];
-            file_put_contents($tweeted_ids, json_encode($new_json));
+            file_put_contents($json_file_path, json_encode($new_json));
             echo 'JSON wiped successfully.';
         } else {
             echo 'Error, JSON not reset.';
