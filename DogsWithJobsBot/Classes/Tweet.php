@@ -104,11 +104,12 @@ class Tweet
     public function savePost($json_post_ids, $new_post)
     {
         array_push($json_post_ids, $new_post['id']);
-        $updated_post_ids = $json_post_ids;
-        $updated_json = new class{};
-        $updated_json->ids = $updated_post_ids;
+        $updated_post_ids   = $json_post_ids;
+        $updated_json       = new class{};
+        $updated_json->ids  = $updated_post_ids;
+        $json_file_path     = __DIR__ . '/../../' . $_SERVER['TWEETED_IDS'];
         
-        file_put_contents($_SERVER['TWEETED_IDS'], json_encode($updated_json));
+        file_put_contents($json_file_path, json_encode($updated_json));
 
         return;
     }
